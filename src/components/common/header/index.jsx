@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { FiChevronDown } from "react-icons/fi";
 import "./header.scss";
 
@@ -8,9 +8,27 @@ const Header = () => {
 
   const [language, setLanguage] = useState(false);
 
+  const [active, setActive] = useState(false);
+  const { pathname } = useLocation();
+
+  const isActive = () => {
+    window.scrollY > 0 ? setActive(true) : setActive(false);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", isActive);
+    return () => {
+      window.removeEventListener("scroll", isActive);
+    };
+  }, []);
+
   return (
     <div className="header">
-      <div className="container">
+      <div
+        className={
+          active || pathname !== "/" ? "container active" : "container"
+        }
+      >
         <Link to="/" className="logo">
           Travel<i>Fy</i>
         </Link>

@@ -11,6 +11,52 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    transition: 0.5s all ease;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    &.active {
+      background-color: #fff;
+
+      .navbar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        a {
+          color: #666362;
+          font-weight: 500;
+          font-size: 16px;
+          transition: ease-in;
+          font-family: "Franklin Gothic Medium", "Arial Narrow", Arial,
+            sans-serif;
+
+          &:hover {
+            color: #ff6e32;
+            transition: ease-out;
+          }
+        }
+      }
+
+      .logo {
+        font-size: 20px;
+        font-weight: 600;
+        color: #666362;
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+      }
+
+      .nav_right {
+        .user,
+        .lang {
+          span,
+          i {
+            color: #666362;
+          }
+        }
+      }
+    }
 
     .logo {
       font-size: 20px;
