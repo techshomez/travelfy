@@ -11,8 +11,10 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
+  const [destination, setDestination] = useState("");
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -21,6 +23,28 @@ const Banner = () => {
       key: "selection",
     },
   ]);
+
+  const [openOptions, setOpenOptions] = useState(false);
+  const [options, setOptions] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+
+  const navigate = useNavigate();
+
+  const handleOption = (name, operation) => {
+    setOptions((prev) => {
+      return {
+        ...prev,
+        [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
+      };
+    });
+  };
+
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, options } });
+  };
 
   return (
     <div className="banner">
@@ -102,6 +126,69 @@ const Banner = () => {
                     </i>
                   </span>
                   <small>4</small>
+                  <div className="guest_option">
+                    <div className="geust_item">
+                      <span className="adult_text">Adult</span>
+                      <div className="counter">
+                        <button
+                          disabled={options.adult <= 1}
+                          className="counter_button"
+                          onClick={() => handleOption("adult", "d")}
+                        >
+                          -
+                        </button>
+                        <span className="counter_number">{options.adult}</span>
+                        <button
+                          className="counter_button"
+                          onClick={() => handleOption("adult", "i")}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="geust_item">
+                      <span className="adult_text">Children</span>
+                      <div className="counter">
+                        <button
+                          disabled={options.children <= 0}
+                          className="counter_button"
+                          onClick={() => handleOption("children", "d")}
+                        >
+                          -
+                        </button>
+                        <span className="counter_number">
+                          {options.children}
+                        </span>
+                        <button
+                          className="counter_button"
+                          onClick={() => handleOption("children", "i")}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="geust_item">
+                      <span className="adult_text">Room</span>
+                      <div className="counter">
+                        <button
+                          disabled={options.room <= 1}
+                          className="counter_button"
+                          onClick={() => handleOption("room", "d")}
+                        >
+                          -
+                        </button>
+                        <span className="counter_number">{options.room}</span>
+                        <button
+                          className="counter_button"
+                          onClick={() => handleOption("room", "i")}
+                        >
+                          +
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="button">
