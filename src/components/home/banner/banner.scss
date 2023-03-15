@@ -1,0 +1,56 @@
+.banner {
+  padding: 2rem 6%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 2rem;
+
+    .banner_text h2 {
+      font-size: 40px;
+      line-height: 55px;
+      font-weight: 700;
+      color: #fff;
+      text-align: center;
+    }
+
+    .banner_text article {
+      font-size: 20px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 30px;
+      padding-top: 1rem;
+      text-align: center;
+    }
+
+    .banner_search {
+      margin-top: 2rem;
+      width: 1000px;
+
+      .search_wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+
+        .search_item {
+          width: 900px;
+          height: 100px;
+          border-radius: 70px;
+          padding: 0px 70px 0px 70px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 3rem;
+          background-color: #fff;
+        }
+      }
+    }
+  }
+}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FiChevronDown, FiMenu, FiX } from "react-icons/fi";
 import "./header.scss";
+import Banner from "../../home/banner";
 
 const Header = () => {
   const [profile, setProfile] = useState(false);
@@ -50,7 +51,7 @@ const Header = () => {
         </nav>
         <div className="nav_right">
           <div className="lang" onClick={() => setLanguage(!language)}>
-            <span to="/">Language</span>
+            <span to="/"></span>
             <img src="./assets/language.png" alt="" />
             <i>
               <FiChevronDown />
@@ -121,9 +122,11 @@ const Header = () => {
             )}
           </i>
           {mobile && (
-            <nav className={
-              active || pathname !== "/" ? "mobile_nav active" : "mobile_nav"
-            }>
+            <nav
+              className={
+                active || pathname !== "/" ? "mobile_nav active" : "mobile_nav"
+              }
+            >
               <Link to="/">Discover</Link>
               <Link to="/">Destination</Link>
               <Link to="/">Saved</Link>
@@ -133,6 +136,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <Banner />
     </div>
   );
 };
