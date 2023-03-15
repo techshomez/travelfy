@@ -35,6 +35,7 @@ const Banner = () => {
                   <FiMapPin />
                 </i>
                 <div className="location_input">
+                  <span>Location <i></i></span>
                   <input
                     type="text"
                     name=""

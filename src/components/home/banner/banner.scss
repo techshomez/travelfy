@@ -49,6 +49,18 @@
           align-items: center;
           gap: 3rem;
           background-color: #fff;
+
+          .location {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .location_input {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+            }
+          }
         }
       }
     }
