@@ -125,78 +125,88 @@ const Banner = () => {
                       <FaChevronDown />
                     </i>
                   </span>
-                  <small>4</small>
-                  <div className="guest_option">
-                    <div className="geust_item">
-                      <span className="adult_text">Adult</span>
-                      <div className="counter">
-                        <button
-                          disabled={options.adult <= 1}
-                          className="counter_button"
-                          onClick={() => handleOption("adult", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="counter_number">{options.adult}</span>
-                        <button
-                          className="counter_button"
-                          onClick={() => handleOption("adult", "i")}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
+                  <small
+                    onClick={() => setOpenOptions(!openOptions)}
+                  >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</small>
+                  {openOptions && (
+                    <>
+                      <div className="guest_option">
+                        <div className="guest_item">
+                          <span className="adult_text">Adult</span>
+                          <div className="counter">
+                            <button
+                              disabled={options.adult <= 1}
+                              className="counter_button"
+                              onClick={() => handleOption("adult", "d")}
+                            >
+                              -
+                            </button>
+                            <span className="counter_number">
+                              {options.adult}
+                            </span>
+                            <button
+                              className="counter_button"
+                              onClick={() => handleOption("adult", "i")}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
 
-                    <div className="geust_item">
-                      <span className="adult_text">Children</span>
-                      <div className="counter">
-                        <button
-                          disabled={options.children <= 0}
-                          className="counter_button"
-                          onClick={() => handleOption("children", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="counter_number">
-                          {options.children}
-                        </span>
-                        <button
-                          className="counter_button"
-                          onClick={() => handleOption("children", "i")}
-                        >
-                          +
-                        </button>
-                      </div>
-                    </div>
+                        <div className="guest_item">
+                          <span className="adult_text">Children</span>
+                          <div className="counter">
+                            <button
+                              disabled={options.children <= 0}
+                              className="counter_button"
+                              onClick={() => handleOption("children", "d")}
+                            >
+                              -
+                            </button>
+                            <span className="counter_number">
+                              {options.children}
+                            </span>
+                            <button
+                              className="counter_button"
+                              onClick={() => handleOption("children", "i")}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
 
-                    <div className="geust_item">
-                      <span className="adult_text">Room</span>
-                      <div className="counter">
-                        <button
-                          disabled={options.room <= 1}
-                          className="counter_button"
-                          onClick={() => handleOption("room", "d")}
-                        >
-                          -
-                        </button>
-                        <span className="counter_number">{options.room}</span>
-                        <button
-                          className="counter_button"
-                          onClick={() => handleOption("room", "i")}
-                        >
-                          +
-                        </button>
+                        <div className="guest_item">
+                          <span className="adult_text">Room</span>
+                          <div className="counter">
+                            <button
+                              disabled={options.room <= 1}
+                              className="counter_button"
+                              onClick={() => handleOption("room", "d")}
+                            >
+                              -
+                            </button>
+                            <span className="counter_number">
+                              {options.room}
+                            </span>
+                            <button
+                              className="counter_button"
+                              onClick={() => handleOption("room", "i")}
+                            >
+                              +
+                            </button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </>
+                  )}
                 </div>
-              </div>
-              <div className="button">
-                <button>
-                  <i>
-                    <FaSearch />
-                  </i>
-                </button>
+                <div className="button">
+                  <button>
+                    <i>
+                      <FaSearch />
+                    </i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

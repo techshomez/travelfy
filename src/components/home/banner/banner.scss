@@ -157,7 +157,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            min-width: 150px;
+            min-width: 200px;
             margin-left: -2rem;
 
             .guest_i {
@@ -185,12 +185,51 @@
               }
 
               small {
+                width: 250px;
                 border: none;
                 margin-top: -0.4rem;
                 outline: none;
                 font-size: 14px;
                 font-weight: 600;
                 color: #0c0404;
+                cursor: pointer;
+              }
+
+              .guest_option {
+                z-index: 2;
+                position: absolute;
+                top: 50;
+                margin-top: +4.43rem;
+                background-color: #fff;
+                color: gray;
+
+                .guest_item {
+                  width: 200px;
+                  display: flex;
+                  justify-content: space-between;
+                  margin: 10px;
+
+                  .counter {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font-size: 12px;
+                    color: black;
+
+                    .counter_button {
+                      width: 30px;
+                      height: 30px;
+                      border: 1px solid #ffa118;
+                      color: #ffa118;
+                      cursor: pointer;
+                      background-color: white;
+                    }
+
+                    .counter_button:disabled {
+                      cursor: not-allowed;
+                    }
+                  }
+                }
               }
             }
           }
@@ -201,7 +240,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 1rem;
+            margin-left: 2rem;
 
             button {
               width: 80px;
