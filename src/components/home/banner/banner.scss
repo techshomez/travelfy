@@ -249,6 +249,12 @@
               border: none;
               background-color: #ffa118;
               color: #0c0404;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #e59015;
+                color: #fff;
+              }
 
               i {
                 font-size: 20px;
