@@ -4,7 +4,12 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import "./banner.scss";
 import { useState } from "react";
-import { FaRegCalendarAlt, FaRegUser } from "react-icons/fa";
+import {
+  FaChevronDown,
+  FaRegCalendarAlt,
+  FaRegUser,
+  FaSearch,
+} from "react-icons/fa";
 import { format } from "date-fns";
 
 const Banner = () => {
@@ -31,11 +36,16 @@ const Banner = () => {
           <div className="search_wrapper">
             <div className="search_item">
               <div className="location">
-                <i>
+                <i className="i">
                   <FiMapPin />
                 </i>
                 <div className="location_input">
-                  <span>Location <i></i></span>
+                  <span>
+                    Location{" "}
+                    <i>
+                      <FaChevronDown />
+                    </i>
+                  </span>
                   <input
                     type="text"
                     name=""
@@ -45,17 +55,27 @@ const Banner = () => {
                 </div>
               </div>
               <div className="dates">
-                <i></i>
                 <div className="date_input">
-                  <span onClick={() => setOpenDate(!openDate)}>
-                    {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-                      date[0].endDate,
-                      "MM/dd/yyyy"
-                    )}`}
-                    <i>
-                      <FaRegCalendarAlt />
-                    </i>
-                  </span>
+                  <i className="date_i">
+                    <FaRegCalendarAlt />
+                  </i>
+                  <div className="date_headings">
+                    <h4>
+                      Date{" "}
+                      <i>
+                        <FaChevronDown />
+                      </i>
+                    </h4>
+                    <span
+                      onClick={() => setOpenDate(!openDate)}
+                      className="dated"
+                    >
+                      {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+                        date[0].endDate,
+                        "MM/dd/yyyy"
+                      )}`}
+                    </span>
+                  </div>
                   {openDate && (
                     <div className="date_range">
                       <DateRange
@@ -63,7 +83,7 @@ const Banner = () => {
                         onChange={(item) => setDate([item.selection])}
                         moveRangeOnFirstSelection={false}
                         ranges={date}
-                        className="date"
+                        style={{ color: "#9e9e9e" }}
                         minDate={new Date()}
                       />
                     </div>
@@ -71,16 +91,25 @@ const Banner = () => {
                 </div>
               </div>
               <div className="guests">
-                <i></i>
+                <i className="guest_i">
+                  <FaRegUser />
+                </i>
                 <div className="guest_input">
                   <span>
-                    Guest{" "}
+                    Guest
                     <i>
-                      <FaRegUser />
+                      <FaChevronDown />
                     </i>
                   </span>
                   <small>4</small>
                 </div>
+              </div>
+              <div className="button">
+                <button>
+                  <i>
+                    <FaSearch />
+                  </i>
+                </button>
               </div>
             </div>
           </div>
