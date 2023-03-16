@@ -2,7 +2,7 @@ import "./popular.scss";
 
 const Popular = () => {
   return (
-    <div className="popular">
+    <div className="populars">
       <div className="container">
         <h2>Popular Attractions</h2>
         <article>The most popular tour package presented to you</article>
